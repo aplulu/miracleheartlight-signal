@@ -186,7 +186,7 @@ export const signalTypes: SignalType[] = [
   },
   {
     id: 105,
-    name: '高速 赤 オレンジ ピンク 黄 緑 水 青 紫'
+    name: '高速 赤 オレンジ ピンク 黄 緑 水 青 紫',
   },
   {
     id: 107,
@@ -202,7 +202,7 @@ export const signalTypes: SignalType[] = [
   },
   {
     id: 111,
-    name: 'ピンク 点滅'
+    name: 'ピンク 点滅',
   },
   {
     id: 112,
@@ -210,7 +210,7 @@ export const signalTypes: SignalType[] = [
   },
   {
     id: 113,
-    name: '紫,'
+    name: '紫',
   },
   {
     id: 114,

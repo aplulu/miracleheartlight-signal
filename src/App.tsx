@@ -1,6 +1,6 @@
 import { Box, Grid } from '@kuma-ui/core';
-import { signalTypes } from './lib/signal_types.ts';
-import { SignalButton } from './components/signal_button.tsx';
+import { signalTypes } from './lib/signal_types';
+import { SignalButton } from './components/signal_button';
 
 function App() {
   return (

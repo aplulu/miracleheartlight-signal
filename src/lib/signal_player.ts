@@ -11,7 +11,7 @@ export const playSignal = (id: number) => {
   const signalFrequency = convertSignalToFrequency(id);
 
   const gainNode = audioContext.createGain();
-  gainNode.gain.value = 0.1;
+  gainNode.gain.value = 0.2;
   gainNode.connect(audioContext.destination);
 
   const startTime = audioContext.currentTime;

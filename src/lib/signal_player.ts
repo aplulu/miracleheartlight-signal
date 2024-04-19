@@ -1,4 +1,4 @@
-import { convertSignalToFrequency } from './signal.ts';
+import { convertSignalToFrequency } from './signal';
 
 const SIGNAL_DURATION = 0.125;
 

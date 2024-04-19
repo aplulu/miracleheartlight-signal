@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+# miracleheartlight-signal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+サンリオピューロランドのパレードで使用されている「ミラクルハートライト」の音声信号を出力するためのWebアプリケーションです。
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
+```bash
+$ npm install
+$ npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Build
+
+```bash
+$ npm run build
+```
+
+## License
+
+MIT
+
+## Credits
+
+- [サンリオピューロランドのミラクル♡ライトの仕組み。制御と解析。](https://titn-nanana.hatenablog.com/entry/2017/12/15/200000)を参考に実装させていただきました。

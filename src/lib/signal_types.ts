@@ -201,6 +201,11 @@ export const signalTypes: SignalType[] = [
     group: 'multi',
   },
   {
+    id: 92,
+    name: '赤',
+    group: 'single',
+  },
+  {
     id: 93,
     name: '長黄 短ライトピンク',
     group: 'multi',

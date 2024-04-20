@@ -6,7 +6,7 @@ export type LightColorPreviewProps = {
 
 export const LightColorPreview = ({ color }: LightColorPreviewProps) => {
   const colorSegments = color.split(' ');
-  console.log(colorSegments);
+
   return (
     <Box display="flex" justifyContent="center" minHeight="21px" gap="4px">
       {colorSegments?.map((segment, index) => {

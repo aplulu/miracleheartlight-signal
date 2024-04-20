@@ -31,9 +31,7 @@ function App() {
         </Text>
 
         {signalGroups.map((group) => (
-          <VStack
-            key={group.name}
-          >
+          <VStack key={group.name}>
             <Text fontSize="1rem" fontWeight="bold">
               {group.label}
             </Text>

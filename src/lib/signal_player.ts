@@ -1,6 +1,7 @@
 import { convertSignalToFrequency } from './signal';
 
 const SIGNAL_DURATION = 0.125;
+const FADE_DURATION = 0.01;
 
 const audioContext = new AudioContext();
 
@@ -11,7 +12,7 @@ export const playSignal = (id: number) => {
   const signalFrequency = convertSignalToFrequency(id);
 
   const gainNode = audioContext.createGain();
-  gainNode.gain.value = 0.2;
+  gainNode.gain.value = 0.5;
   gainNode.connect(audioContext.destination);
 
   const startTime = audioContext.currentTime;
@@ -21,9 +22,27 @@ export const playSignal = (id: number) => {
 
     oscillator.frequency.value = frequency;
 
-    oscillator.connect(gainNode);
+    const envelopeGain = audioContext.createGain();
+    envelopeGain.gain.setValueAtTime(0, startTime + i * SIGNAL_DURATION);
+    envelopeGain.gain.linearRampToValueAtTime(
+      1,
+      startTime + i * SIGNAL_DURATION + FADE_DURATION
+    );
+    envelopeGain.gain.setValueAtTime(
+      1,
+      startTime + (i + 1) * SIGNAL_DURATION - FADE_DURATION
+    );
+    envelopeGain.gain.linearRampToValueAtTime(
+      0,
+      startTime + (i + 1) * SIGNAL_DURATION
+    );
+
+    oscillator.connect(envelopeGain);
+    envelopeGain.connect(gainNode);
+
     oscillator.onended = () => {
       oscillator.disconnect();
+      envelopeGain.disconnect();
     };
 
     oscillator.start(startTime + i * SIGNAL_DURATION);

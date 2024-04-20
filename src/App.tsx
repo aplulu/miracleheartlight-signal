@@ -12,7 +12,14 @@ function App() {
         <Text fontSize="0.875rem">
           サンリオピューロランドのパレードで使用されているペンライト「ミラクル♡ライト」の可聴範囲外制御信号を生成するためのポン出し機です。
           <br />
-          ミラクルハートライトは、サンリオピューロランド現地ショップまたは、
+          ミラクルハートライトは、
+          <a
+            href="https://www.puroland.jp/goods/miracle-heart-light/"
+            target="_blank"
+            rel="noopener noreferrer">
+            サンリオピューロランド現地ショップ
+          </a>
+          または、
           <a
             href="https://shop.sanrio.co.jp/item/detail/1_1_2207807427_1/-_-/-"
             target="_blank"

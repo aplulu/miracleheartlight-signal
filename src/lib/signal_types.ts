@@ -242,7 +242,7 @@ export const signalTypes: SignalType[] = [
   },
   {
     id: 122,
-    name: '長ピンク短黄',
+    name: '長ピンク 短黄',
   },
   {
     id: 123,

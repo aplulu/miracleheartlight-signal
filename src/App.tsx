@@ -1,16 +1,56 @@
-import { Box, Grid } from '@kuma-ui/core';
+import { Text, Grid, VStack } from '@kuma-ui/core';
+
 import { signalTypes } from './lib/signal_types';
 import { SignalButton } from './components/signal_button';
+import { Header } from './components/header';
 
 function App() {
   return (
-    <Box as="main">
-      <Grid gridTemplateColumns="repeat(auto-fit, minmax(260px, 1fr))" gap={6}>
-        {signalTypes.map((signal) => (
-          <SignalButton key={signal.id} signal={signal} />
-        ))}
-      </Grid>
-    </Box>
+    <VStack>
+      <Header />
+      <VStack as="main" gap={24} px={24} py={12}>
+        <Text fontSize="0.875rem">
+          サンリオピューロランドのパレードで使用されているペンライト「ミラクル♡ライト」の可聴範囲外制御信号を生成するためのポン出し機です。
+          <br />
+          ミラクルハートライトは、サンリオピューロランド現地ショップまたは、
+          <a
+            href="https://shop.sanrio.co.jp/item/detail/1_1_2207807427_1/-_-/-"
+            target="_blank"
+            rel="noopener noreferrer">
+            サンリオオンラインショップ
+          </a>
+          で購入できます。
+          <br />
+          制御信号部分は{' '}
+          <a
+            href="https://titn-nanana.hatenablog.com/entry/2017/12/15/200000"
+            target="_blank">
+            サンリオピューロランドのミラクル♡ライトの仕組み。制御と解析。
+          </a>{' '}
+          を参考に実装させていただきました。
+        </Text>
+
+        <Grid
+          gridTemplateColumns="repeat(auto-fit, minmax(260px, 1fr))"
+          gap={6}>
+          {signalTypes
+            .filter((v) => v.name !== '消灯')
+            .map((signal) => (
+              <SignalButton key={signal.id} signal={signal} />
+            ))}
+        </Grid>
+
+        <Grid
+          gridTemplateColumns="repeat(auto-fit, minmax(260px, 1fr))"
+          gap={6}>
+          {signalTypes
+            .filter((v) => v.name === '消灯')
+            .map((signal) => (
+              <SignalButton key={signal.id} signal={signal} />
+            ))}
+        </Grid>
+      </VStack>
+    </VStack>
   );
 }
 

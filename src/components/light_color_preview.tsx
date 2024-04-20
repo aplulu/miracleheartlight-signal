@@ -7,6 +7,10 @@ export type LightColorPreviewProps = {
 export const LightColorPreview = ({ color }: LightColorPreviewProps) => {
   const colorSegments = color.split(' ');
 
+  const isFast =
+    colorSegments.length > 0 &&
+    (colorSegments[0] === '高速' || colorSegments[0] === '超高速');
+
   return (
     <Box display="flex" justifyContent="center" minHeight="21px" gap="4px">
       {colorSegments?.map((segment, index) => {
@@ -20,11 +24,13 @@ export const LightColorPreview = ({ color }: LightColorPreviewProps) => {
           borderRadius = '10px';
           margin = '0 1px';
           segment = segment.slice(1);
-        } else if (segment.startsWith('短')) {
+        } else if (segment.startsWith('短') || isFast) {
           width = '8px';
           borderRadius = '10px';
           margin = '0 1px';
-          segment = segment.slice(1);
+          if (!isFast) {
+            segment = segment.slice(1);
+          }
         }
 
         switch (segment) {

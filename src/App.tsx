@@ -1,6 +1,6 @@
 import { Text, Grid, VStack } from '@kuma-ui/core';
 
-import { signalTypes } from './lib/signal_types';
+import { signalGroups, signalTypes } from './lib/signal_types';
 import { SignalButton } from './components/signal_button';
 import { Header } from './components/header';
 
@@ -30,25 +30,24 @@ function App() {
           を参考に実装させていただきました。
         </Text>
 
-        <Grid
-          gridTemplateColumns="repeat(auto-fit, minmax(260px, 1fr))"
-          gap={6}>
-          {signalTypes
-            .filter((v) => v.name !== '消灯')
-            .map((signal) => (
-              <SignalButton key={signal.id} signal={signal} />
-            ))}
-        </Grid>
-
-        <Grid
-          gridTemplateColumns="repeat(auto-fit, minmax(260px, 1fr))"
-          gap={6}>
-          {signalTypes
-            .filter((v) => v.name === '消灯')
-            .map((signal) => (
-              <SignalButton key={signal.id} signal={signal} />
-            ))}
-        </Grid>
+        {signalGroups.map((group) => (
+          <VStack
+            key={group.name}
+          >
+            <Text fontSize="1rem" fontWeight="bold">
+              {group.label}
+            </Text>
+            <Grid
+              gridTemplateColumns="repeat(auto-fit, minmax(260px, 1fr))"
+              gap={6}>
+              {signalTypes
+                .filter((v) => v.group === group.name)
+                .map((signal) => (
+                  <SignalButton key={signal.id} signal={signal} />
+                ))}
+            </Grid>
+          </VStack>
+        ))}
       </VStack>
     </VStack>
   );
